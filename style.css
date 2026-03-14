@@ -1,0 +1,285 @@
+:root {
+    --pista-green: #E9F5DB;
+    --deep-purple: #6C3483;
+    --light-purple: #F3E5F5;
+    --milky-white: #FDFEFE;
+    --glass: rgba(253, 254, 254, 0.75);
+    --text-color: #2E4053;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--pista-green);
+    background-image: linear-gradient(135deg, var(--pista-green) 0%, var(--light-purple) 100%);
+    background-attachment: fixed;
+    color: var(--text-color);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Watermark Pattern Layer */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 512'%3E%3Cpath fill='%236C3483' d='M624 208H432L224 400 16 208h192L0 32l160 160L320 0l160 192L640 32l-16 176z'%3E%3C/path%3E%3C/svg%3E");
+    background-size: 80px 80px;
+    background-repeat: repeat;
+    opacity: 0.04;
+    z-index: -1;
+    pointer-events: none;
+    filter: blur(0.5px);
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(15px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(108, 52, 131, 0.1);
+}
+
+nav .logo {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    color: var(--deep-purple);
+    font-weight: 700;
+}
+
+nav .nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-left: 25px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+nav .nav-links a:hover { color: var(--deep-purple); }
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.photo-container {
+    width: 280px; 
+    height: 280px;
+    border-radius: 50%;
+    border: 10px solid var(--milky-white);
+    box-shadow: 0 20px 40px rgba(108, 52, 131, 0.15);
+    overflow: hidden;
+    margin-bottom: 30px;
+    transition: 0.5s ease;
+}
+
+.photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: var(--deep-purple);
+    margin-bottom: 10px;
+}
+
+.hero h3 {
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: #5D6D7E;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+/* Section Styling */
+.section {
+    padding: 100px 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--deep-purple);
+}
+
+.section-title span { font-style: italic; }
+
+.card {
+    background: var(--glass);
+    padding: 40px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--milky-white);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    margin-bottom: 40px;
+}
+
+/* Skills Layout */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.skill-box {
+    background: var(--milky-white);
+    padding: 25px;
+    border-radius: 20px;
+    border-left: 5px solid var(--deep-purple);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    transition: 0.3s;
+}
+
+.skill-box h4 {
+    color: var(--deep-purple);
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.skill-list { list-style: none; }
+.skill-list li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.skill-list li::before {
+    content: '▹';
+    color: var(--deep-purple);
+    font-weight: bold;
+}
+
+/* Certification Styling */
+.cert-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.cert-display {
+    width: 100%;
+    max-width: 700px;
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    border: 2px solid var(--deep-purple);
+    transition: transform 0.4s ease;
+}
+
+.cert-display:hover { transform: scale(1.02); }
+
+.cert-display img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+}
+
+.cert-info {
+    text-align: center;
+    background: var(--milky-white);
+    padding: 25px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 700px;
+}
+
+.grade-badge {
+    background: #27AE60;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* Tags */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.tag {
+    background: var(--deep-purple);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+}
+
+/* Contact */
+.contact-row {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+.contact-btn {
+    width: 60px;
+    height: 60px;
+    background: var(--milky-white);
+    color: var(--deep-purple);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: 0.4s;
+    box-shadow: 0 5px 15px rgba(108, 52, 131, 0.1);
+}
+
+.contact-btn:hover {
+    background: var(--deep-purple);
+    color: white;
+    transform: translateY(-5px) rotate(360deg);
+}
+
+footer {
+    text-align: center;
+    padding: 60px 10%;
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .photo-container { width: 220px; height: 220px; }
+    .nav-links { display: none; }
+}
